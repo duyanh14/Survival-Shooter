@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
             laserLine.SetPosition(0, laserOrigin.position);
             Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0.1f, 0));
             RaycastHit hit;
+            
+      
             if (Physics.Raycast(rayOrigin, Camera.main.transform.forward, out hit, gunRange))
             {
                 laserLine.SetPosition(1, hit.point);
@@ -32,6 +34,10 @@ public class Player : MonoBehaviour
             {
                 laserLine.SetPosition(1, rayOrigin + (Camera.main.transform.forward * gunRange));
             }
+            
+            // transform.LookAt(hit.point);
+            // transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 0));
+            //
 
             StartCoroutine(ShootLaser());
         }

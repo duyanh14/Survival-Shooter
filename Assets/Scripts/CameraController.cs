@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
     {
         transform.position = player.transform.position - player.transform.forward * cameraDistance;
         transform.LookAt (player.transform.position);
-        transform.position = new Vector3 (transform.position.x, transform.position.y + 5, transform.position.z);
+        transform.position = new Vector3 (transform.position.x, transform.position.y + 5, 0);
         
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
